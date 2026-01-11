@@ -1,0 +1,1185 @@
+[ @file = "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc"; @line = 1; @symbol_importdef<0> = [Toybox,1,7,13]; @symbol_importdef<1> = [WatchUi,1,14,21]; ]
+import Toybox.WatchUi;
+[ @file = "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc"; @line = 2; @symbol_importdef<0> = [Toybox,2,7,13]; @symbol_importdef<1> = [Graphics,2,14,22]; ]
+import Toybox.Graphics;
+[ @file = "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc"; @line = 3; @symbol_importdef<0> = [Toybox,3,7,13]; @symbol_importdef<1> = [Math,3,14,18]; ]
+import Toybox.Math;
+[ @file = "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc"; @line = 4; @symbol_importdef<0> = [Toybox,4,7,13]; @symbol_importdef<1> = [Lang,4,14,18]; ]
+import Toybox.Lang;
+[ @file = "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc"; @line = 5; @symbol_importdef<0> = [Toybox,5,7,13]; @symbol_importdef<1> = [ActivityMonitor,5,14,29]; ]
+import Toybox.ActivityMonitor;
+[ @file = "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc"; @line = 7; @symbol_classdef = [RegularityScoreView,7,6,25]; @symbol_extends<0> = [WatchUi,7,34,41]; @symbol_extends<1> = [View,7,42,46]; ]
+class RegularityScoreView extends WatchUi.View {
+    [ @file = "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc"; @line = 7; ]
+    <init> {
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 12 8 ]
+        symbol [ Graphics %tmp.1 12 21 29 ];
+        %tmp.1 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.2 12 30 41 ];
+        %tmp.2 = getv %tmp.1 :COLOR_WHITE;
+        putv self :scoreColor %tmp.2;
+    }
+    [ @file = "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc"; @line = 7; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc"; @line = 9; @position = 8; @symbol_vardef = [score,9,8,13]; ]
+    var score = 0;
+    [ @file = "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc"; @line = 10; @position = 8; @symbol_vardef = [message,10,8,15]; ]
+    var message = "";
+    [ @file = "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc"; @line = 11; @position = 8; @symbol_vardef = [nbStars,11,8,15]; ]
+    var nbStars = 0;
+    [ @file = "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc"; @line = 12; @position = 8; @symbol_vardef = [scoreColor,12,8,18]; ]
+    var scoreColor;
+    [ @file = "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc"; @line = 14; @symbol_functiondef = [initialize,14,13,23]; ]
+    function initialize() as Void {
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_14_26_27_4_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 15 8 ]
+        symbol [ View %tmp.2 15 8 12 ];
+        %tmp.2 = getv ? :View;
+        symbol [ initialize %tmp.3 15 13 23 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 16 8 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_14_26_27_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_14_26_27_4_stop" ]
+        %modeTest.1 = local;
+        symbol [ modeTest %modeTest.1 16 12 20 ];
+        %tmp.4 = false;
+        lputv %modeTest.1 %tmp.4;
+        symbol [ modeTest %modeTest.1 16 12 20 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 18 8 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_14_26_27_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_14_26_27_4_stop" ]
+        %history.2 = local;
+        symbol [ history %history.2 18 12 19 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 19 8 ]
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_19_8_23_8_if_stmt:
+        %tmp.5 = lgetv %modeTest.1;
+        symbol [ modeTest %tmp.5 19 12 20 ];
+        bf %tmp.5 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_19_8_23_8_if_else_false;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_19_8_23_8_if_true:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_19_22_21_8_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 20 13 ]
+        %tmp.6 = newa 7 Array<Number>;
+        symbol [ Array %tmp.6 20 55 60 ];
+        symbol [ Number %tmp.6 20 61 67 ];
+        %tmp.7 = 25;
+        %tmp.8 = dup %tmp.6;
+        %tmp.9 = aputv %tmp.8 0 %tmp.7;
+        %tmp.10 = 25;
+        %tmp.11 = dup %tmp.9;
+        %tmp.12 = aputv %tmp.11 1 %tmp.10;
+        %tmp.13 = 25;
+        %tmp.14 = dup %tmp.12;
+        %tmp.15 = aputv %tmp.14 2 %tmp.13;
+        %tmp.16 = 25;
+        %tmp.17 = dup %tmp.15;
+        %tmp.18 = aputv %tmp.17 3 %tmp.16;
+        %tmp.19 = 25;
+        %tmp.20 = dup %tmp.18;
+        %tmp.21 = aputv %tmp.20 4 %tmp.19;
+        %tmp.22 = 25;
+        %tmp.23 = dup %tmp.21;
+        %tmp.24 = aputv %tmp.23 5 %tmp.22;
+        %tmp.25 = 25;
+        %tmp.26 = dup %tmp.24;
+        %tmp.27 = aputv %tmp.26 6 %tmp.25;
+        lputv %history.2 %tmp.27;
+        symbol [ history %history.2 20 13 20 ];
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_19_22_21_8_stop:
+        goto @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_19_8_23_8_if_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_19_8_23_8_if_else_false:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_21_15_23_8_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 22 13 ]
+        %tmp.28 = self;
+        symbol [ getHistoryFromGarmin %tmp.29 22 23 43 ];
+        %tmp.29 = getv function %tmp.28 :getHistoryFromGarmin;
+        %tmp.30 = invoke %tmp.28 %tmp.29();
+        lputv %history.2 %tmp.30;
+        symbol [ history %history.2 22 13 20 ];
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_21_15_23_8_stop:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_19_8_23_8_if_end:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 25 8 ]
+        %tmp.31 = self;
+        symbol [ computeScore %tmp.32 25 16 28 ];
+        %tmp.32 = getv function %tmp.31 :computeScore;
+        %tmp.33 = lgetv %history.2;
+        symbol [ history %tmp.33 25 29 36 ];
+        %tmp.34 = invoke %tmp.31 %tmp.32(%tmp.33);
+        symbol [ score ? 25 8 13 ];
+        putv self :score %tmp.34;
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 26 8 ]
+        %tmp.35 = self;
+        symbol [ updateData %tmp.36 26 8 18 ];
+        %tmp.36 = getv function %tmp.35 :updateData;
+        invoke %tmp.35 %tmp.36();
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_14_26_27_4_stop:
+    }
+    [ @file = "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc"; @line = 29; @symbol_functiondef = [getHistoryFromGarmin,29,13,33]; @symbol_return<0> = [Array,29,39,44]; @symbol_return<1> = [Number,29,45,51]; ]
+    function getHistoryFromGarmin() as Array<Number or Null> {
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_29_54_40_4_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 30 8 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_29_54_40_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_29_54_40_4_stop" ]
+        %history.1 = local;
+        symbol [ history %history.1 30 12 19 ];
+        symbol [ ActivityMonitor %tmp.1 30 22 37 ];
+        %tmp.1 = getm $.Toybox.ActivityMonitor;
+        symbol [ getHistory %tmp.2 30 38 48 ];
+        %tmp.2 = getv function %tmp.1 :getHistory;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %history.1 %tmp.3;
+        symbol [ history %history.1 30 12 19 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 31 8 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_29_54_40_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_29_54_40_4_stop" ]
+        %result.2 = local;
+        symbol [ result %result.2 31 12 18 ];
+        %tmp.5 = 7;
+        %tmp.4 = newa %tmp.5;
+        lputv %result.2 %tmp.4;
+        symbol [ result %result.2 31 12 18 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 32 8 ]
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_32_8_38_8_if_stmt:
+        %tmp.6 = lgetv %history.1;
+        symbol [ history %tmp.6 32 12 19 ];
+        %tmp.7 = null;
+        %tmp.8 = ne %tmp.6 %tmp.7;
+        bf %tmp.8 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_32_8_38_8_if_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_32_8_38_8_if_true:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_32_29_38_8_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 33 12 ]
+        for @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_33_12_37_12_for_test @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_33_12_37_12_for_incr @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_33_12_37_12_for_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_33_12_37_12_for_init:
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_33_12_37_12_for_begin" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_33_12_37_12_for_end" ]
+        %i.3 = local;
+        symbol [ i %i.3 33 21 22 ];
+        %tmp.9 = 0;
+        lputv %i.3 %tmp.9;
+        symbol [ i %i.3 33 21 22 ];
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_33_12_37_12_for_test:
+        %tmp.10 = lgetv %i.3;
+        symbol [ i %tmp.10 33 28 29 ];
+        %tmp.11 = 7;
+        %tmp.12 = lt %tmp.10 %tmp.11;
+        bf %tmp.12 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_33_12_37_12_for_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_33_12_37_12_for_begin:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_33_40_37_12_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 34 16 ]
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_16_36_40_if_stmt:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_20_34_125_begin:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_20_34_80_begin:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_20_34_56_begin:
+        %tmp.13 = lgetv %i.3;
+        symbol [ i %tmp.13 34 20 21 ];
+        %tmp.14 = lgetv %history.1;
+        symbol [ history %tmp.14 34 24 31 ];
+        %tmp.15 = as %tmp.14 { (!Null) };
+        symbol [ size %tmp.16 34 32 36 ];
+        %tmp.16 = getv function %tmp.15 :size;
+        %tmp.17 = invoke %tmp.15 %tmp.16();
+        %tmp.18 = lt %tmp.13 %tmp.17;
+        bf %tmp.18 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_16_36_40_if_else_false;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_42_34_56_true:
+        %tmp.19 = lgetv %history.1;
+        symbol [ history %tmp.19 34 42 49 ];
+        %tmp.20 = as %tmp.19 { (!Null) };
+        %tmp.21 = lgetv %i.3;
+        symbol [ i %tmp.21 34 50 51 ];
+        %tmp.22 = agetv %tmp.20 %tmp.21;
+        %tmp.23 = null;
+        %tmp.24 = ne %tmp.22 %tmp.23;
+        push %tmp.24;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_42_34_56_end:
+        %tmp.25 = phi [%tmp.18 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_20_34_56_begin] [%tmp.24 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_42_34_56_true] [%tmp.25 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_42_34_56_end];
+        bf %tmp.25 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_16_36_40_if_else_false;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_64_34_80_true:
+        %tmp.26 = lgetv %history.1;
+        symbol [ history %tmp.26 34 64 71 ];
+        %tmp.27 = as %tmp.26 { (!Null) };
+        %tmp.28 = lgetv %i.3;
+        symbol [ i %tmp.28 34 72 73 ];
+        %tmp.29 = agetv %tmp.27 %tmp.28;
+        %tmp.31 = const :activeMinutes;
+        symbol [ activeMinutes %tmp.31 34 80 93 const ];
+        %tmp.32 = canhazplz %tmp.29 %tmp.31;
+        push %tmp.32;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_64_34_80_end:
+        %tmp.33 = phi [%tmp.25 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_20_34_80_begin] [%tmp.32 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_64_34_80_true] [%tmp.33 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_64_34_80_end];
+        bf %tmp.33 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_16_36_40_if_else_false;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_97_34_125_true:
+        %tmp.34 = lgetv %history.1;
+        symbol [ history %tmp.34 34 97 104 ];
+        %tmp.35 = as %tmp.34 { (!Null) };
+        %tmp.36 = lgetv %i.3;
+        symbol [ i %tmp.36 34 105 106 ];
+        %tmp.37 = agetv %tmp.35 %tmp.36;
+        symbol [ activeMinutes %tmp.38 34 108 121 ];
+        %tmp.38 = getv %tmp.37 :activeMinutes;
+        %tmp.39 = null;
+        %tmp.40 = ne %tmp.38 %tmp.39;
+        push %tmp.40;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_97_34_125_end:
+        %tmp.41 = phi [%tmp.33 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_20_34_125_begin] [%tmp.40 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_97_34_125_true] [%tmp.41 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_97_34_125_end];
+        bf %tmp.41 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_16_36_40_if_else_false;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_16_36_40_if_true:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_131_36_16_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 35 20 ]
+        %tmp.42 = lgetv %result.2;
+        symbol [ result %tmp.42 35 20 26 ];
+        %tmp.43 = lgetv %history.1;
+        symbol [ history %tmp.43 35 32 39 ];
+        %tmp.44 = as %tmp.43 { (!Null) };
+        %tmp.45 = lgetv %i.3;
+        symbol [ i %tmp.45 35 40 41 ];
+        %tmp.46 = agetv %tmp.44 %tmp.45;
+        symbol [ activeMinutes %tmp.47 35 43 56 ];
+        %tmp.47 = getv %tmp.46 :activeMinutes;
+        symbol [ total %tmp.48 35 57 62 ];
+        %tmp.48 = getv %tmp.47 :total;
+        %tmp.49 = lgetv %i.3;
+        symbol [ i %tmp.49 35 27 28 ];
+        aputv %tmp.42 %tmp.49 %tmp.48;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_131_36_16_stop:
+        goto @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_16_36_40_if_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_16_36_40_if_else_false:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_36_23_36_40_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 36 25 ]
+        %tmp.50 = lgetv %result.2;
+        symbol [ result %tmp.50 36 25 31 ];
+        %tmp.51 = 0;
+        %tmp.52 = lgetv %i.3;
+        symbol [ i %tmp.52 36 32 33 ];
+        aputv %tmp.50 %tmp.52 %tmp.51;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_36_23_36_40_stop:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_34_16_36_40_if_end:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_33_40_37_12_stop:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_33_12_37_12_for_incr:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 33 ]
+        %tmp.55 = lgetv %i.3;
+        symbol [ i %tmp.55 33 35 36 ];
+        %tmp.56 = add %tmp.55 1;
+        lputv %i.3 %tmp.56;
+        symbol [ i %i.3 33 35 36 ];
+        goto @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_33_12_37_12_for_test;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_33_12_37_12_for_end:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_32_29_38_8_stop:
+        goto @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_32_8_38_8_if_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_32_8_38_8_if_end:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 39 8 ]
+        %tmp.57 = lgetv %result.2;
+        symbol [ result %tmp.57 39 15 21 ];
+        ret %tmp.57;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_29_54_40_4_stop:
+    }
+    [ @file = "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc"; @line = 43; @symbol_functiondef = [computeScore,43,13,25]; @symbol_param<0> = [daysArray,43,26,35]; @symbol_param<0>_type<0> = [Array,43,39,44]; @symbol_param<0>_type<1> = [Number,43,45,51]; ]
+    function computeScore(daysArray as Array<Number or Null>) {
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 44 8 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_stop" ]
+        %arr.1 = local;
+        symbol [ arr %arr.1 44 12 15 ];
+        %tmp.2 = 7;
+        %tmp.1 = newa %tmp.2;
+        lputv %arr.1 %tmp.1;
+        symbol [ arr %arr.1 44 12 15 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 45 8 ]
+        for @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_45_8_49_8_for_test @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_45_8_49_8_for_incr @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_45_8_49_8_for_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_45_8_49_8_for_init:
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_45_8_49_8_for_begin" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_45_8_49_8_for_end" ]
+        %i.2 = local;
+        symbol [ i %i.2 45 17 18 ];
+        %tmp.3 = 0;
+        lputv %i.2 %tmp.3;
+        symbol [ i %i.2 45 17 18 ];
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_45_8_49_8_for_test:
+        %tmp.4 = lgetv %i.2;
+        symbol [ i %tmp.4 45 24 25 ];
+        %tmp.5 = 7;
+        %tmp.6 = lt %tmp.4 %tmp.5;
+        bf %tmp.6 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_45_8_49_8_for_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_45_8_49_8_for_begin:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_45_36_49_8_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 46 12 ]
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_46_12_48_33_if_stmt:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_46_16_46_56_begin:
+        %tmp.7 = lgetv %i.2;
+        symbol [ i %tmp.7 46 16 17 ];
+        %tmp.8 = lgetv %daysArray;
+        symbol [ daysArray %tmp.8 46 20 29 ];
+        symbol [ size %tmp.9 46 30 34 ];
+        %tmp.9 = getv function %tmp.8 :size;
+        %tmp.10 = invoke %tmp.8 %tmp.9();
+        %tmp.11 = lt %tmp.7 %tmp.10;
+        bf %tmp.11 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_46_12_48_33_if_else_false;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_46_40_46_56_true:
+        %tmp.12 = lgetv %daysArray;
+        symbol [ daysArray %tmp.12 46 40 49 ];
+        %tmp.13 = lgetv %i.2;
+        symbol [ i %tmp.13 46 50 51 ];
+        %tmp.14 = agetv %tmp.12 %tmp.13;
+        %tmp.15 = null;
+        %tmp.16 = ne %tmp.14 %tmp.15;
+        push %tmp.16;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_46_40_46_56_end:
+        %tmp.17 = phi [%tmp.11 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_46_16_46_56_begin] [%tmp.16 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_46_40_46_56_true] [%tmp.17 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_46_40_46_56_end];
+        bf %tmp.17 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_46_12_48_33_if_else_false;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_46_12_48_33_if_true:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_46_62_48_12_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 47 16 ]
+        %tmp.18 = lgetv %arr.1;
+        symbol [ arr %tmp.18 47 16 19 ];
+        %tmp.19 = lgetv %daysArray;
+        symbol [ daysArray %tmp.19 47 25 34 ];
+        %tmp.20 = lgetv %i.2;
+        symbol [ i %tmp.20 47 35 36 ];
+        %tmp.21 = agetv %tmp.19 %tmp.20;
+        %tmp.22 = as %tmp.21 Number;
+        symbol [ Number %tmp.22 47 41 47 ];
+        %tmp.23 = lgetv %i.2;
+        symbol [ i %tmp.23 47 20 21 ];
+        aputv %tmp.18 %tmp.23 %tmp.22;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_46_62_48_12_stop:
+        goto @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_46_12_48_33_if_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_46_12_48_33_if_else_false:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_48_19_48_33_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 48 21 ]
+        %tmp.24 = lgetv %arr.1;
+        symbol [ arr %tmp.24 48 21 24 ];
+        %tmp.25 = 0;
+        %tmp.26 = lgetv %i.2;
+        symbol [ i %tmp.26 48 25 26 ];
+        aputv %tmp.24 %tmp.26 %tmp.25;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_48_19_48_33_stop:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_46_12_48_33_if_end:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_45_36_49_8_stop:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_45_8_49_8_for_incr:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 45 ]
+        %tmp.29 = lgetv %i.2;
+        symbol [ i %tmp.29 45 31 32 ];
+        %tmp.30 = add %tmp.29 1;
+        lputv %i.2 %tmp.30;
+        symbol [ i %i.2 45 31 32 ];
+        goto @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_45_8_49_8_for_test;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_45_8_49_8_for_end:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 50 8 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_stop" ]
+        %daysActive.3 = local;
+        symbol [ daysActive %daysActive.3 50 12 22 ];
+        %tmp.31 = 0;
+        lputv %daysActive.3 %tmp.31;
+        symbol [ daysActive %daysActive.3 50 12 22 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 50 28 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_stop" ]
+        %totalMinutes.4 = local;
+        symbol [ totalMinutes %totalMinutes.4 50 32 44 ];
+        %tmp.32 = 0;
+        lputv %totalMinutes.4 %tmp.32;
+        symbol [ totalMinutes %totalMinutes.4 50 32 44 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 50 50 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_stop" ]
+        %maxStreak.5 = local;
+        symbol [ maxStreak %maxStreak.5 50 54 63 ];
+        %tmp.33 = 0;
+        lputv %maxStreak.5 %tmp.33;
+        symbol [ maxStreak %maxStreak.5 50 54 63 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 50 69 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_stop" ]
+        %cur.6 = local;
+        symbol [ cur %cur.6 50 73 76 ];
+        %tmp.34 = 0;
+        lputv %cur.6 %tmp.34;
+        symbol [ cur %cur.6 50 73 76 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 51 8 ]
+        for @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_51_8_56_8_for_test @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_51_8_56_8_for_incr @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_51_8_56_8_for_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_51_8_56_8_for_init:
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_51_8_56_8_for_begin" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_51_8_56_8_for_end" ]
+        %i.7 = local;
+        symbol [ i %i.7 51 17 18 ];
+        %tmp.35 = 0;
+        lputv %i.7 %tmp.35;
+        symbol [ i %i.7 51 17 18 ];
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_51_8_56_8_for_test:
+        %tmp.36 = lgetv %i.7;
+        symbol [ i %tmp.36 51 24 25 ];
+        %tmp.37 = lgetv %arr.1;
+        symbol [ arr %tmp.37 51 28 31 ];
+        symbol [ size %tmp.38 51 32 36 ];
+        %tmp.38 = getv function %tmp.37 :size;
+        %tmp.39 = invoke %tmp.37 %tmp.38();
+        %tmp.40 = lt %tmp.36 %tmp.39;
+        bf %tmp.40 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_51_8_56_8_for_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_51_8_56_8_for_begin:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_51_45_56_8_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 52 12 ]
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_52_12_55_30_if_stmt:
+        %tmp.41 = lgetv %arr.1;
+        symbol [ arr %tmp.41 52 16 19 ];
+        %tmp.42 = lgetv %i.7;
+        symbol [ i %tmp.42 52 20 21 ];
+        %tmp.43 = agetv %tmp.41 %tmp.42;
+        %tmp.44 = 0;
+        %tmp.45 = gt %tmp.43 %tmp.44;
+        bf %tmp.45 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_52_12_55_30_if_else_false;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_52_12_55_30_if_true:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_52_28_55_12_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 53 16 ]
+        %tmp.48 = lgetv %daysActive.3;
+        symbol [ daysActive %tmp.48 53 16 26 ];
+        %tmp.49 = add %tmp.48 1;
+        lputv %daysActive.3 %tmp.49;
+        symbol [ daysActive %daysActive.3 53 16 26 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 53 30 ]
+        %tmp.50 = lgetv %totalMinutes.4;
+        symbol [ totalMinutes %tmp.50 53 30 42 ];
+        %tmp.51 = lgetv %arr.1;
+        symbol [ arr %tmp.51 53 46 49 ];
+        %tmp.52 = lgetv %i.7;
+        symbol [ i %tmp.52 53 50 51 ];
+        %tmp.53 = agetv %tmp.51 %tmp.52;
+        %tmp.54 = add %tmp.50 %tmp.53;
+        lputv %totalMinutes.4 %tmp.54;
+        symbol [ totalMinutes %totalMinutes.4 53 30 42 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 53 54 ]
+        %tmp.57 = lgetv %cur.6;
+        symbol [ cur %tmp.57 53 54 57 ];
+        %tmp.58 = add %tmp.57 1;
+        lputv %cur.6 %tmp.58;
+        symbol [ cur %cur.6 53 54 57 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 54 16 ]
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_54_16_54_56_if_stmt:
+        %tmp.59 = lgetv %cur.6;
+        symbol [ cur %tmp.59 54 20 23 ];
+        %tmp.60 = lgetv %maxStreak.5;
+        symbol [ maxStreak %tmp.60 54 26 35 ];
+        %tmp.61 = gt %tmp.59 %tmp.60;
+        bf %tmp.61 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_54_16_54_56_if_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_54_16_54_56_if_true:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_54_37_54_56_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 54 39 ]
+        %tmp.62 = lgetv %cur.6;
+        symbol [ cur %tmp.62 54 51 54 ];
+        lputv %maxStreak.5 %tmp.62;
+        symbol [ maxStreak %maxStreak.5 54 39 48 ];
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_54_37_54_56_stop:
+        goto @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_54_16_54_56_if_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_54_16_54_56_if_end:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_52_28_55_12_stop:
+        goto @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_52_12_55_30_if_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_52_12_55_30_if_else_false:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_55_19_55_30_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 55 21 ]
+        %tmp.63 = 0;
+        lputv %cur.6 %tmp.63;
+        symbol [ cur %cur.6 55 21 24 ];
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_55_19_55_30_stop:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_52_12_55_30_if_end:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_51_45_56_8_stop:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_51_8_56_8_for_incr:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 51 ]
+        %tmp.66 = lgetv %i.7;
+        symbol [ i %tmp.66 51 40 41 ];
+        %tmp.67 = add %tmp.66 1;
+        lputv %i.7 %tmp.67;
+        symbol [ i %i.7 51 40 41 ];
+        goto @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_51_8_56_8_for_test;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_51_8_56_8_for_end:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 57 8 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_stop" ]
+        %freqScore.8 = local;
+        symbol [ freqScore %freqScore.8 57 12 21 ];
+        %tmp.68 = lgetv %daysActive.3;
+        symbol [ daysActive %tmp.68 57 25 35 ];
+        %tmp.69 = 7.0;
+        %tmp.70 = div %tmp.68 %tmp.69;
+        %tmp.71 = 50.0;
+        %tmp.72 = mul %tmp.70 %tmp.71;
+        lputv %freqScore.8 %tmp.72;
+        symbol [ freqScore %freqScore.8 57 12 21 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 58 8 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_stop" ]
+        %streakScore.9 = local;
+        symbol [ streakScore %streakScore.9 58 12 23 ];
+        %tmp.73 = lgetv %maxStreak.5;
+        symbol [ maxStreak %tmp.73 58 27 36 ];
+        %tmp.74 = 7.0;
+        %tmp.75 = div %tmp.73 %tmp.74;
+        %tmp.76 = 30.0;
+        %tmp.77 = mul %tmp.75 %tmp.76;
+        lputv %streakScore.9 %tmp.77;
+        symbol [ streakScore %streakScore.9 58 12 23 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 59 8 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_stop" ]
+        %ratio.10 = local;
+        symbol [ ratio %ratio.10 59 12 17 ];
+        %tmp.78 = lgetv %totalMinutes.4;
+        symbol [ totalMinutes %tmp.78 59 20 32 ];
+        %tmp.79 = 210.0;
+        %tmp.80 = div %tmp.78 %tmp.79;
+        lputv %ratio.10 %tmp.80;
+        symbol [ ratio %ratio.10 59 12 17 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 60 8 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_stop" ]
+        %durationScore.11 = local;
+        symbol [ durationScore %durationScore.11 60 12 25 ];
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_60_28_60_64_begin:
+        %tmp.81 = lgetv %ratio.10;
+        symbol [ ratio %tmp.81 60 29 34 ];
+        %tmp.82 = 1.0;
+        %tmp.83 = gt %tmp.81 %tmp.82;
+        bf %tmp.83 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_60_28_60_64_else_false;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_60_28_60_64_true:
+        %tmp.84 = 20.0;
+        push %tmp.84;
+        goto @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_60_28_60_64_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_60_28_60_64_else_false:
+        %tmp.85 = lgetv %ratio.10;
+        symbol [ ratio %tmp.85 60 52 57 ];
+        %tmp.86 = 20.0;
+        %tmp.87 = mul %tmp.85 %tmp.86;
+        push %tmp.87;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_60_28_60_64_end:
+        %tmp.88 = phi [%tmp.83 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_60_28_60_64_begin] [%tmp.84 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_60_28_60_64_true] [%tmp.87 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_60_28_60_64_else_false] [%tmp.88 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_60_28_60_64_end];
+        lputv %durationScore.11 %tmp.88;
+        symbol [ durationScore %durationScore.11 60 12 25 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 61 8 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_stop" ]
+        %total.12 = local;
+        symbol [ total %total.12 61 12 17 ];
+        symbol [ Math %tmp.89 61 20 24 ];
+        %tmp.89 = getm $.Toybox.Math;
+        symbol [ round %tmp.90 61 25 30 ];
+        %tmp.90 = getv function %tmp.89 :round;
+        %tmp.91 = lgetv %freqScore.8;
+        symbol [ freqScore %tmp.91 61 31 40 ];
+        %tmp.92 = lgetv %streakScore.9;
+        symbol [ streakScore %tmp.92 61 43 54 ];
+        %tmp.93 = add %tmp.91 %tmp.92;
+        %tmp.94 = lgetv %durationScore.11;
+        symbol [ durationScore %tmp.94 61 57 70 ];
+        %tmp.95 = add %tmp.93 %tmp.94;
+        %tmp.96 = invoke %tmp.89 %tmp.90(%tmp.95);
+        symbol [ toNumber %tmp.97 61 72 80 ];
+        %tmp.97 = getv function %tmp.96 :toNumber;
+        %tmp.98 = invoke %tmp.96 %tmp.97();
+        lputv %total.12 %tmp.98;
+        symbol [ total %total.12 61 12 17 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 62 8 ]
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_62_8_62_36_if_stmt:
+        %tmp.99 = lgetv %total.12;
+        symbol [ total %tmp.99 62 12 17 ];
+        %tmp.100 = 0;
+        %tmp.101 = lt %tmp.99 %tmp.100;
+        bf %tmp.101 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_62_8_62_36_if_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_62_8_62_36_if_true:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_62_23_62_36_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 62 25 ]
+        %tmp.102 = 0;
+        lputv %total.12 %tmp.102;
+        symbol [ total %total.12 62 25 30 ];
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_62_23_62_36_stop:
+        goto @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_62_8_62_36_if_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_62_8_62_36_if_end:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 63 8 ]
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_63_8_63_40_if_stmt:
+        %tmp.103 = lgetv %total.12;
+        symbol [ total %tmp.103 63 12 17 ];
+        %tmp.104 = 100;
+        %tmp.105 = gt %tmp.103 %tmp.104;
+        bf %tmp.105 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_63_8_63_40_if_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_63_8_63_40_if_true:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_63_25_63_40_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 63 27 ]
+        %tmp.106 = 100;
+        lputv %total.12 %tmp.106;
+        symbol [ total %total.12 63 27 32 ];
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_63_25_63_40_stop:
+        goto @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_63_8_63_40_if_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_63_8_63_40_if_end:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 64 8 ]
+        %tmp.107 = lgetv %total.12;
+        symbol [ total %tmp.107 64 15 20 ];
+        ret %tmp.107;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_43_55_65_4_stop:
+    }
+    [ @file = "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc"; @line = 68; @symbol_functiondef = [updateData,68,13,23]; ]
+    function updateData() {
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_68_26_86_4_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 69 8 ]
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_69_8_85_8_if_stmt:
+        symbol [ score %tmp.2 69 12 17 ];
+        %tmp.2 = getv ? :score;
+        %tmp.3 = 80;
+        %tmp.4 = gte %tmp.2 %tmp.3;
+        bf %tmp.4 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_69_8_85_8_if_false;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_69_8_85_8_if_true:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_69_25_73_8_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 70 12 ]
+        %tmp.5 = 4;
+        symbol [ nbStars ? 70 12 19 ];
+        putv self :nbStars %tmp.5;
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 71 12 ]
+        %tmp.6 = "EXCELLENT";
+        symbol [ message ? 71 12 19 ];
+        putv self :message %tmp.6;
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 72 12 ]
+        symbol [ Graphics %tmp.7 72 25 33 ];
+        %tmp.7 = getm $.Toybox.Graphics;
+        symbol [ COLOR_GREEN %tmp.8 72 34 45 ];
+        %tmp.8 = getv %tmp.7 :COLOR_GREEN;
+        symbol [ scoreColor ? 72 12 22 ];
+        putv self :scoreColor %tmp.8;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_69_25_73_8_stop:
+        goto @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_69_8_85_8_if_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_69_8_85_8_if_false:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 73 15 ]
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_73_15_85_8_if_stmt:
+        symbol [ score %tmp.10 73 19 24 ];
+        %tmp.10 = getv ? :score;
+        %tmp.11 = 60;
+        %tmp.12 = gte %tmp.10 %tmp.11;
+        bf %tmp.12 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_73_15_85_8_if_false;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_73_15_85_8_if_true:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_73_32_77_8_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 74 12 ]
+        %tmp.13 = 3;
+        symbol [ nbStars ? 74 12 19 ];
+        putv self :nbStars %tmp.13;
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 75 12 ]
+        %tmp.14 = "BIEN";
+        symbol [ message ? 75 12 19 ];
+        putv self :message %tmp.14;
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 76 12 ]
+        %tmp.15 = 0xFFAA00;
+        symbol [ scoreColor ? 76 12 22 ];
+        putv self :scoreColor %tmp.15;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_73_32_77_8_stop:
+        goto @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_73_15_85_8_if_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_73_15_85_8_if_false:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 77 15 ]
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_77_15_85_8_if_stmt:
+        symbol [ score %tmp.17 77 19 24 ];
+        %tmp.17 = getv ? :score;
+        %tmp.18 = 40;
+        %tmp.19 = gte %tmp.17 %tmp.18;
+        bf %tmp.19 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_77_15_85_8_if_else_false;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_77_15_85_8_if_true:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_77_32_81_8_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 78 12 ]
+        %tmp.20 = 2;
+        symbol [ nbStars ? 78 12 19 ];
+        putv self :nbStars %tmp.20;
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 79 12 ]
+        %tmp.21 = "MOYEN";
+        symbol [ message ? 79 12 19 ];
+        putv self :message %tmp.21;
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 80 12 ]
+        symbol [ Graphics %tmp.22 80 25 33 ];
+        %tmp.22 = getm $.Toybox.Graphics;
+        symbol [ COLOR_YELLOW %tmp.23 80 34 46 ];
+        %tmp.23 = getv %tmp.22 :COLOR_YELLOW;
+        symbol [ scoreColor ? 80 12 22 ];
+        putv self :scoreColor %tmp.23;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_77_32_81_8_stop:
+        goto @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_77_15_85_8_if_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_77_15_85_8_if_else_false:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_81_15_85_8_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 82 12 ]
+        %tmp.24 = 1;
+        symbol [ nbStars ? 82 12 19 ];
+        putv self :nbStars %tmp.24;
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 83 12 ]
+        %tmp.25 = "ALLEZ !";
+        symbol [ message ? 83 12 19 ];
+        putv self :message %tmp.25;
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 84 12 ]
+        symbol [ Graphics %tmp.26 84 25 33 ];
+        %tmp.26 = getm $.Toybox.Graphics;
+        symbol [ COLOR_RED %tmp.27 84 34 43 ];
+        %tmp.27 = getv %tmp.26 :COLOR_RED;
+        symbol [ scoreColor ? 84 12 22 ];
+        putv self :scoreColor %tmp.27;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_81_15_85_8_stop:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_77_15_85_8_if_end:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_73_15_85_8_if_end:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_69_8_85_8_if_end:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_68_26_86_4_stop:
+    }
+    [ @file = "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc"; @line = 90; @symbol_functiondef = [onUpdate,90,13,21]; @symbol_param<0> = [dc,90,22,24]; ]
+    function onUpdate(dc) {
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_90_26_131_4_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 92 8 ]
+        %tmp.1 = lgetv %dc;
+        symbol [ dc %tmp.1 92 8 10 ];
+        symbol [ setColor %tmp.2 92 11 19 ];
+        %tmp.2 = getv function %tmp.1 :setColor;
+        symbol [ Graphics %tmp.3 92 20 28 ];
+        %tmp.3 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.4 92 29 40 ];
+        %tmp.4 = getv %tmp.3 :COLOR_BLACK;
+        symbol [ Graphics %tmp.5 92 42 50 ];
+        %tmp.5 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.6 92 51 62 ];
+        %tmp.6 = getv %tmp.5 :COLOR_BLACK;
+        invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 93 8 ]
+        %tmp.7 = lgetv %dc;
+        symbol [ dc %tmp.7 93 8 10 ];
+        symbol [ clear %tmp.8 93 11 16 ];
+        %tmp.8 = getv function %tmp.7 :clear;
+        invoke %tmp.7 %tmp.8();
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 95 8 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_90_26_131_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_90_26_131_4_stop" ]
+        %cx.1 = local;
+        symbol [ cx %cx.1 95 12 14 ];
+        %tmp.9 = lgetv %dc;
+        symbol [ dc %tmp.9 95 17 19 ];
+        symbol [ getWidth %tmp.10 95 20 28 ];
+        %tmp.10 = getv function %tmp.9 :getWidth;
+        %tmp.11 = invoke %tmp.9 %tmp.10();
+        %tmp.12 = 2;
+        %tmp.13 = div %tmp.11 %tmp.12;
+        lputv %cx.1 %tmp.13;
+        symbol [ cx %cx.1 95 12 14 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 96 8 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_90_26_131_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_90_26_131_4_stop" ]
+        %cy.2 = local;
+        symbol [ cy %cy.2 96 12 14 ];
+        %tmp.14 = lgetv %dc;
+        symbol [ dc %tmp.14 96 17 19 ];
+        symbol [ getHeight %tmp.15 96 20 29 ];
+        %tmp.15 = getv function %tmp.14 :getHeight;
+        %tmp.16 = invoke %tmp.14 %tmp.15();
+        %tmp.17 = 2;
+        %tmp.18 = div %tmp.16 %tmp.17;
+        lputv %cy.2 %tmp.18;
+        symbol [ cy %cy.2 96 12 14 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 99 8 ]
+        %tmp.19 = lgetv %dc;
+        symbol [ dc %tmp.19 99 8 10 ];
+        symbol [ setPenWidth %tmp.20 99 11 22 ];
+        %tmp.20 = getv function %tmp.19 :setPenWidth;
+        %tmp.21 = 10;
+        invoke %tmp.19 %tmp.20(%tmp.21);
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 100 8 ]
+        %tmp.22 = lgetv %dc;
+        symbol [ dc %tmp.22 100 8 10 ];
+        symbol [ setColor %tmp.23 100 11 19 ];
+        %tmp.23 = getv function %tmp.22 :setColor;
+        symbol [ Graphics %tmp.24 100 20 28 ];
+        %tmp.24 = getm $.Toybox.Graphics;
+        symbol [ COLOR_DK_GRAY %tmp.25 100 29 42 ];
+        %tmp.25 = getv %tmp.24 :COLOR_DK_GRAY;
+        symbol [ Graphics %tmp.26 100 44 52 ];
+        %tmp.26 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.27 100 53 70 ];
+        %tmp.27 = getv %tmp.26 :COLOR_TRANSPARENT;
+        invoke %tmp.22 %tmp.23(%tmp.25, %tmp.27);
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 101 8 ]
+        %tmp.28 = lgetv %dc;
+        symbol [ dc %tmp.28 101 8 10 ];
+        symbol [ drawCircle %tmp.29 101 11 21 ];
+        %tmp.29 = getv function %tmp.28 :drawCircle;
+        %tmp.30 = lgetv %cx.1;
+        symbol [ cx %tmp.30 101 22 24 ];
+        %tmp.31 = lgetv %cy.2;
+        symbol [ cy %tmp.31 101 26 28 ];
+        %tmp.32 = lgetv %cx.1;
+        symbol [ cx %tmp.32 101 30 32 ];
+        %tmp.33 = 10;
+        %tmp.34 = sub %tmp.32 %tmp.33;
+        invoke %tmp.28 %tmp.29(%tmp.30, %tmp.31, %tmp.34);
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 104 8 ]
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_104_8_108_8_if_stmt:
+        symbol [ score %tmp.36 104 12 17 ];
+        %tmp.36 = getv ? :score;
+        %tmp.37 = 0;
+        %tmp.38 = gt %tmp.36 %tmp.37;
+        bf %tmp.38 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_104_8_108_8_if_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_104_8_108_8_if_true:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_104_23_108_8_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 105 12 ]
+        %tmp.39 = lgetv %dc;
+        symbol [ dc %tmp.39 105 12 14 ];
+        symbol [ setColor %tmp.40 105 15 23 ];
+        %tmp.40 = getv function %tmp.39 :setColor;
+        symbol [ scoreColor %tmp.42 105 24 34 ];
+        %tmp.42 = getv ? :scoreColor;
+        symbol [ Graphics %tmp.43 105 36 44 ];
+        %tmp.43 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.44 105 45 62 ];
+        %tmp.44 = getv %tmp.43 :COLOR_TRANSPARENT;
+        invoke %tmp.39 %tmp.40(%tmp.42, %tmp.44);
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 106 12 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_104_23_108_8_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_104_23_108_8_stop" ]
+        %endAngle.3 = local;
+        symbol [ endAngle %endAngle.3 106 16 24 ];
+        %tmp.45 = 90;
+        symbol [ score %tmp.47 106 33 38 ];
+        %tmp.47 = getv ? :score;
+        %tmp.48 = 3.6;
+        %tmp.49 = mul %tmp.47 %tmp.48;
+        %tmp.50 = sub %tmp.45 %tmp.49;
+        lputv %endAngle.3 %tmp.50;
+        symbol [ endAngle %endAngle.3 106 16 24 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 107 12 ]
+        %tmp.51 = lgetv %dc;
+        symbol [ dc %tmp.51 107 12 14 ];
+        symbol [ drawArc %tmp.52 107 15 22 ];
+        %tmp.52 = getv function %tmp.51 :drawArc;
+        %tmp.53 = lgetv %cx.1;
+        symbol [ cx %tmp.53 107 23 25 ];
+        %tmp.54 = lgetv %cy.2;
+        symbol [ cy %tmp.54 107 27 29 ];
+        %tmp.55 = lgetv %cx.1;
+        symbol [ cx %tmp.55 107 31 33 ];
+        %tmp.56 = 10;
+        %tmp.57 = sub %tmp.55 %tmp.56;
+        symbol [ Graphics %tmp.58 107 40 48 ];
+        %tmp.58 = getm $.Toybox.Graphics;
+        symbol [ ARC_CLOCKWISE %tmp.59 107 49 62 ];
+        %tmp.59 = getv %tmp.58 :ARC_CLOCKWISE;
+        %tmp.60 = 90;
+        %tmp.61 = lgetv %endAngle.3;
+        symbol [ endAngle %tmp.61 107 68 76 ];
+        invoke %tmp.51 %tmp.52(%tmp.53, %tmp.54, %tmp.57, %tmp.59, %tmp.60, %tmp.61);
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_104_23_108_8_stop:
+        goto @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_104_8_108_8_if_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_104_8_108_8_if_end:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 111 8 ]
+        %tmp.62 = lgetv %dc;
+        symbol [ dc %tmp.62 111 8 10 ];
+        symbol [ setColor %tmp.63 111 11 19 ];
+        %tmp.63 = getv function %tmp.62 :setColor;
+        symbol [ Graphics %tmp.64 111 20 28 ];
+        %tmp.64 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.65 111 29 40 ];
+        %tmp.65 = getv %tmp.64 :COLOR_WHITE;
+        symbol [ Graphics %tmp.66 111 42 50 ];
+        %tmp.66 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.67 111 51 68 ];
+        %tmp.67 = getv %tmp.66 :COLOR_TRANSPARENT;
+        invoke %tmp.62 %tmp.63(%tmp.65, %tmp.67);
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 112 8 ]
+        %tmp.68 = lgetv %dc;
+        symbol [ dc %tmp.68 112 8 10 ];
+        symbol [ drawText %tmp.69 112 11 19 ];
+        %tmp.69 = getv function %tmp.68 :drawText;
+        %tmp.70 = lgetv %cx.1;
+        symbol [ cx %tmp.70 112 20 22 ];
+        %tmp.71 = lgetv %cy.2;
+        symbol [ cy %tmp.71 112 24 26 ];
+        %tmp.72 = 10;
+        %tmp.73 = sub %tmp.71 %tmp.72;
+        symbol [ Graphics %tmp.74 112 33 41 ];
+        %tmp.74 = getm $.Toybox.Graphics;
+        symbol [ FONT_NUMBER_HOT %tmp.75 112 42 57 ];
+        %tmp.75 = getv %tmp.74 :FONT_NUMBER_HOT;
+        symbol [ score %tmp.77 112 59 64 ];
+        %tmp.77 = getv ? :score;
+        symbol [ toString %tmp.78 112 65 73 ];
+        %tmp.78 = getv function %tmp.77 :toString;
+        %tmp.79 = invoke %tmp.77 %tmp.78();
+        symbol [ Graphics %tmp.80 112 77 85 ];
+        %tmp.80 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.81 112 86 105 ];
+        %tmp.81 = getv %tmp.80 :TEXT_JUSTIFY_CENTER;
+        symbol [ Graphics %tmp.82 112 108 116 ];
+        %tmp.82 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_VCENTER %tmp.83 112 117 137 ];
+        %tmp.83 = getv %tmp.82 :TEXT_JUSTIFY_VCENTER;
+        %tmp.84 = bitor %tmp.81 %tmp.83;
+        invoke %tmp.68 %tmp.69(%tmp.70, %tmp.73, %tmp.75, %tmp.79, %tmp.84);
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 117 8 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_90_26_131_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_90_26_131_4_stop" ]
+        %starSize.4 = local;
+        symbol [ starSize %starSize.4 117 12 20 ];
+        %tmp.85 = 8;
+        lputv %starSize.4 %tmp.85;
+        symbol [ starSize %starSize.4 117 12 20 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 118 8 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_90_26_131_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_90_26_131_4_stop" ]
+        %spacing.5 = local;
+        symbol [ spacing %spacing.5 118 12 19 ];
+        %tmp.86 = 20;
+        lputv %spacing.5 %tmp.86;
+        symbol [ spacing %spacing.5 118 12 19 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 119 8 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_90_26_131_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_90_26_131_4_stop" ]
+        %totalWidth.6 = local;
+        symbol [ totalWidth %totalWidth.6 119 12 22 ];
+        symbol [ nbStars %tmp.88 119 26 33 ];
+        %tmp.88 = getv ? :nbStars;
+        %tmp.89 = lgetv %spacing.5;
+        symbol [ spacing %tmp.89 119 36 43 ];
+        %tmp.90 = mul %tmp.88 %tmp.89;
+        lputv %totalWidth.6 %tmp.90;
+        symbol [ totalWidth %totalWidth.6 119 12 22 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 120 8 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_90_26_131_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_90_26_131_4_stop" ]
+        %startX.7 = local;
+        symbol [ startX %startX.7 120 12 18 ];
+        %tmp.91 = lgetv %cx.1;
+        symbol [ cx %tmp.91 120 21 23 ];
+        %tmp.92 = lgetv %totalWidth.6;
+        symbol [ totalWidth %tmp.92 120 27 37 ];
+        %tmp.93 = 2;
+        %tmp.94 = div %tmp.92 %tmp.93;
+        %tmp.95 = sub %tmp.91 %tmp.94;
+        %tmp.96 = lgetv %spacing.5;
+        symbol [ spacing %tmp.96 120 46 53 ];
+        %tmp.97 = 2;
+        %tmp.98 = div %tmp.96 %tmp.97;
+        %tmp.99 = add %tmp.95 %tmp.98;
+        lputv %startX.7 %tmp.99;
+        symbol [ startX %startX.7 120 12 18 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 122 8 ]
+        %tmp.100 = lgetv %dc;
+        symbol [ dc %tmp.100 122 8 10 ];
+        symbol [ setColor %tmp.101 122 11 19 ];
+        %tmp.101 = getv function %tmp.100 :setColor;
+        symbol [ scoreColor %tmp.103 122 20 30 ];
+        %tmp.103 = getv ? :scoreColor;
+        symbol [ Graphics %tmp.104 122 32 40 ];
+        %tmp.104 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.105 122 41 58 ];
+        %tmp.105 = getv %tmp.104 :COLOR_TRANSPARENT;
+        invoke %tmp.100 %tmp.101(%tmp.103, %tmp.105);
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 124 8 ]
+        for @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_124_8_126_8_for_test @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_124_8_126_8_for_incr @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_124_8_126_8_for_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_124_8_126_8_for_init:
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_124_8_126_8_for_begin" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_124_8_126_8_for_end" ]
+        %i.8 = local;
+        symbol [ i %i.8 124 17 18 ];
+        %tmp.106 = 0;
+        lputv %i.8 %tmp.106;
+        symbol [ i %i.8 124 17 18 ];
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_124_8_126_8_for_test:
+        %tmp.107 = lgetv %i.8;
+        symbol [ i %tmp.107 124 24 25 ];
+        symbol [ nbStars %tmp.109 124 28 35 ];
+        %tmp.109 = getv ? :nbStars;
+        %tmp.110 = lt %tmp.107 %tmp.109;
+        bf %tmp.110 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_124_8_126_8_for_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_124_8_126_8_for_begin:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_124_42_126_8_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 125 12 ]
+        %tmp.111 = self;
+        symbol [ drawStar %tmp.112 125 12 20 ];
+        %tmp.112 = getv function %tmp.111 :drawStar;
+        %tmp.113 = lgetv %dc;
+        symbol [ dc %tmp.113 125 21 23 ];
+        %tmp.114 = lgetv %startX.7;
+        symbol [ startX %tmp.114 125 25 31 ];
+        %tmp.115 = lgetv %i.8;
+        symbol [ i %tmp.115 125 35 36 ];
+        %tmp.116 = lgetv %spacing.5;
+        symbol [ spacing %tmp.116 125 39 46 ];
+        %tmp.117 = mul %tmp.115 %tmp.116;
+        %tmp.118 = add %tmp.114 %tmp.117;
+        %tmp.119 = lgetv %cy.2;
+        symbol [ cy %tmp.119 125 49 51 ];
+        %tmp.120 = 60;
+        %tmp.121 = sub %tmp.119 %tmp.120;
+        %tmp.122 = lgetv %starSize.4;
+        symbol [ starSize %tmp.122 125 58 66 ];
+        invoke %tmp.111 %tmp.112(%tmp.113, %tmp.118, %tmp.121, %tmp.122);
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_124_42_126_8_stop:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_124_8_126_8_for_incr:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 124 ]
+        %tmp.125 = lgetv %i.8;
+        symbol [ i %tmp.125 124 37 38 ];
+        %tmp.126 = add %tmp.125 1;
+        lputv %i.8 %tmp.126;
+        symbol [ i %i.8 124 37 38 ];
+        goto @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_124_8_126_8_for_test;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_124_8_126_8_for_end:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 129 8 ]
+        %tmp.127 = lgetv %dc;
+        symbol [ dc %tmp.127 129 8 10 ];
+        symbol [ setColor %tmp.128 129 11 19 ];
+        %tmp.128 = getv function %tmp.127 :setColor;
+        symbol [ Graphics %tmp.129 129 20 28 ];
+        %tmp.129 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.130 129 29 40 ];
+        %tmp.130 = getv %tmp.129 :COLOR_WHITE;
+        symbol [ Graphics %tmp.131 129 42 50 ];
+        %tmp.131 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.132 129 51 68 ];
+        %tmp.132 = getv %tmp.131 :COLOR_TRANSPARENT;
+        invoke %tmp.127 %tmp.128(%tmp.130, %tmp.132);
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 130 8 ]
+        %tmp.133 = lgetv %dc;
+        symbol [ dc %tmp.133 130 8 10 ];
+        symbol [ drawText %tmp.134 130 11 19 ];
+        %tmp.134 = getv function %tmp.133 :drawText;
+        %tmp.135 = lgetv %cx.1;
+        symbol [ cx %tmp.135 130 20 22 ];
+        %tmp.136 = lgetv %cy.2;
+        symbol [ cy %tmp.136 130 24 26 ];
+        %tmp.137 = 60;
+        %tmp.138 = add %tmp.136 %tmp.137;
+        symbol [ Graphics %tmp.139 130 33 41 ];
+        %tmp.139 = getm $.Toybox.Graphics;
+        symbol [ FONT_TINY %tmp.140 130 42 51 ];
+        %tmp.140 = getv %tmp.139 :FONT_TINY;
+        symbol [ message %tmp.142 130 53 60 ];
+        %tmp.142 = getv ? :message;
+        symbol [ Graphics %tmp.143 130 62 70 ];
+        %tmp.143 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.144 130 71 90 ];
+        %tmp.144 = getv %tmp.143 :TEXT_JUSTIFY_CENTER;
+        symbol [ Graphics %tmp.145 130 93 101 ];
+        %tmp.145 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_VCENTER %tmp.146 130 102 122 ];
+        %tmp.146 = getv %tmp.145 :TEXT_JUSTIFY_VCENTER;
+        %tmp.147 = bitor %tmp.144 %tmp.146;
+        invoke %tmp.133 %tmp.134(%tmp.135, %tmp.138, %tmp.140, %tmp.142, %tmp.147);
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_90_26_131_4_stop:
+    }
+    [ @file = "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc"; @line = 134; @symbol_functiondef = [drawStar,134,13,21]; @symbol_param<0> = [dc,134,22,24]; @symbol_param<1> = [x,134,26,27]; @symbol_param<2> = [y,134,29,30]; @symbol_param<3> = [radius,134,32,38]; ]
+    function drawStar(dc, x, y, radius) {
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_134_40_148_4_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 135 8 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_134_40_148_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_134_40_148_4_stop" ]
+        %pts.1 = local;
+        symbol [ pts %pts.1 135 12 15 ];
+        %tmp.2 = 10;
+        %tmp.1 = newa %tmp.2;
+        lputv %pts.1 %tmp.1;
+        symbol [ pts %pts.1 135 12 15 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 136 8 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_134_40_148_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_134_40_148_4_stop" ]
+        %angle.2 = local;
+        symbol [ angle %angle.2 136 12 17 ];
+        symbol [ Math %tmp.3 136 21 25 ];
+        %tmp.3 = getm $.Toybox.Math;
+        symbol [ PI %tmp.4 136 26 28 ];
+        %tmp.4 = getv %tmp.3 :PI;
+        %tmp.5 = sub 0 %tmp.4;
+        %tmp.6 = 2;
+        %tmp.7 = div %tmp.5 %tmp.6;
+        lputv %angle.2 %tmp.7;
+        symbol [ angle %angle.2 136 12 17 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 137 8 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_134_40_148_4_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_134_40_148_4_stop" ]
+        %step.3 = local;
+        symbol [ step %step.3 137 12 16 ];
+        symbol [ Math %tmp.8 137 19 23 ];
+        %tmp.8 = getm $.Toybox.Math;
+        symbol [ PI %tmp.9 137 24 26 ];
+        %tmp.9 = getv %tmp.8 :PI;
+        %tmp.10 = 5;
+        %tmp.11 = div %tmp.9 %tmp.10;
+        lputv %step.3 %tmp.11;
+        symbol [ step %step.3 137 12 16 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 139 8 ]
+        for @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_139_8_146_8_for_test @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_139_8_146_8_for_incr @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_139_8_146_8_for_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_139_8_146_8_for_init:
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_139_8_146_8_for_begin" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_139_8_146_8_for_end" ]
+        %i.4 = local;
+        symbol [ i %i.4 139 17 18 ];
+        %tmp.12 = 0;
+        lputv %i.4 %tmp.12;
+        symbol [ i %i.4 139 17 18 ];
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_139_8_146_8_for_test:
+        %tmp.13 = lgetv %i.4;
+        symbol [ i %tmp.13 139 24 25 ];
+        %tmp.14 = 10;
+        %tmp.15 = lt %tmp.13 %tmp.14;
+        bf %tmp.15 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_139_8_146_8_for_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_139_8_146_8_for_begin:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_139_37_146_8_start:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 140 12 ]
+        [ "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_139_37_146_8_start" "_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_139_37_146_8_stop" ]
+        %r.5 = local;
+        symbol [ r %r.5 140 16 17 ];
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_140_20_140_53_begin:
+        %tmp.16 = lgetv %i.4;
+        symbol [ i %tmp.16 140 21 22 ];
+        %tmp.17 = 2;
+        %tmp.18 = mod %tmp.16 %tmp.17;
+        %tmp.19 = 0;
+        %tmp.20 = eq %tmp.18 %tmp.19;
+        bf %tmp.20 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_140_20_140_53_else_false;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_140_20_140_53_true:
+        %tmp.21 = lgetv %radius;
+        symbol [ radius %tmp.21 140 35 41 ];
+        push %tmp.21;
+        goto @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_140_20_140_53_end;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_140_20_140_53_else_false:
+        %tmp.22 = lgetv %radius;
+        symbol [ radius %tmp.22 140 44 50 ];
+        %tmp.23 = 2;
+        %tmp.24 = div %tmp.22 %tmp.23;
+        push %tmp.24;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_140_20_140_53_end:
+        %tmp.25 = phi [%tmp.20 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_140_20_140_53_begin] [%tmp.21 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_140_20_140_53_true] [%tmp.24 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_140_20_140_53_else_false] [%tmp.25 @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_140_20_140_53_end];
+        lputv %r.5 %tmp.25;
+        symbol [ r %r.5 140 16 17 ];
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 141 12 ]
+        %tmp.26 = lgetv %pts.1;
+        symbol [ pts %tmp.26 141 12 15 ];
+        %tmp.27 = newa 2;
+        %tmp.28 = lgetv %x;
+        symbol [ x %tmp.28 142 16 17 ];
+        %tmp.29 = lgetv %r.5;
+        symbol [ r %tmp.29 142 20 21 ];
+        symbol [ Math %tmp.30 142 24 28 ];
+        %tmp.30 = getm $.Toybox.Math;
+        symbol [ cos %tmp.31 142 29 32 ];
+        %tmp.31 = getv function %tmp.30 :cos;
+        %tmp.32 = lgetv %angle.2;
+        symbol [ angle %tmp.32 142 33 38 ];
+        %tmp.33 = invoke %tmp.30 %tmp.31(%tmp.32);
+        %tmp.34 = mul %tmp.29 %tmp.33;
+        %tmp.35 = add %tmp.28 %tmp.34;
+        %tmp.36 = dup %tmp.27;
+        %tmp.37 = aputv %tmp.36 0 %tmp.35;
+        %tmp.38 = lgetv %y;
+        symbol [ y %tmp.38 143 16 17 ];
+        %tmp.39 = lgetv %r.5;
+        symbol [ r %tmp.39 143 20 21 ];
+        symbol [ Math %tmp.40 143 24 28 ];
+        %tmp.40 = getm $.Toybox.Math;
+        symbol [ sin %tmp.41 143 29 32 ];
+        %tmp.41 = getv function %tmp.40 :sin;
+        %tmp.42 = lgetv %angle.2;
+        symbol [ angle %tmp.42 143 33 38 ];
+        %tmp.43 = invoke %tmp.40 %tmp.41(%tmp.42);
+        %tmp.44 = mul %tmp.39 %tmp.43;
+        %tmp.45 = add %tmp.38 %tmp.44;
+        %tmp.46 = dup %tmp.37;
+        %tmp.47 = aputv %tmp.46 1 %tmp.45;
+        %tmp.48 = lgetv %i.4;
+        symbol [ i %tmp.48 141 16 17 ];
+        aputv %tmp.26 %tmp.48 %tmp.47;
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 145 12 ]
+        %tmp.49 = lgetv %angle.2;
+        symbol [ angle %tmp.49 145 12 17 ];
+        %tmp.50 = lgetv %step.3;
+        symbol [ step %tmp.50 145 21 25 ];
+        %tmp.51 = add %tmp.49 %tmp.50;
+        lputv %angle.2 %tmp.51;
+        symbol [ angle %angle.2 145 12 17 ];
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_139_37_146_8_stop:
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_139_8_146_8_for_incr:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 139 ]
+        %tmp.54 = lgetv %i.4;
+        symbol [ i %tmp.54 139 32 33 ];
+        %tmp.55 = add %tmp.54 1;
+        lputv %i.4 %tmp.55;
+        symbol [ i %i.4 139 32 33 ];
+        goto @_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_139_8_146_8_for_test;
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_139_8_146_8_for_end:
+[ "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc" 147 8 ]
+        %tmp.56 = lgetv %dc;
+        symbol [ dc %tmp.56 147 8 10 ];
+        symbol [ fillPolygon %tmp.57 147 11 22 ];
+        %tmp.57 = getv function %tmp.56 :fillPolygon;
+        %tmp.58 = lgetv %pts.1;
+        symbol [ pts %tmp.58 147 23 26 ];
+        invoke %tmp.56 %tmp.57(%tmp.58);
+_Users_thomashendrickx_RegularityScore_RegularityScore_source_RegularityScoreView_mc_134_40_148_4_stop:
+    }
+}
+[ @file = "/Users/thomashendrickx/RegularityScore/RegularityScore/source/RegularityScoreView.mc"; @line = 1; ]
+<init> {
+}
